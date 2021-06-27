@@ -1,0 +1,141 @@
+body {
+  background-color:rgb(56, 46, 46);
+}
+
+#header {
+  width:100%;
+  display:flex;
+  justify-content:center;
+  color:rgb(179, 152, 226);
+  padding-top:20px;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size:30px;
+}
+
+
+#inContain {
+  margin: 50px 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+}
+
+.input {
+  margin: 10px 0;
+  background-color:black;
+  color:white;
+  font-weight:bold;
+}
+
+#addNote {
+  background-color:rgb(118, 84, 179);
+  border:none;
+  padding:10px;
+  border-radius:5px;
+
+}
+
+#addNote:focus{
+  border:2px solid white;
+}
+
+#bjjLogsCon {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.log {
+  width: 250px;
+  height:auto;
+  border-radius:10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  margin: 20px;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+}
+
+.edit
+{
+  font-size:15px;
+  font-weight:bold;
+}
+
+
+.update
+{
+  font-size:15px;
+  font-weight:bold;
+
+}
+
+h4 {
+  color:rgb(255, 255, 255);
+  font-size:20PX;
+}
+
+label {
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color:yellow;
+}
+
+
+
+
+.saveCancel {
+  display: none;
+  margin: 20px;
+}
+
+.noteContain {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 60px;
+  margin: 10px 0px 10px 0px;
+}
+
+.notesIn {
+  display: none;
+}
+
+.notesOut
+{
+  text-align:center;
+  width:100%;
+}
+
+#add {
+  margin:20px 0px 20px 0px;
+  background-color:rgb(118, 84, 179);
+  border:none;
+  padding:10px;
+  border-radius:5px;
+  color:white;
+  font-size:25px;
+  font-weight:bold;
+  width:50px;
+}
+
+
+#add:focus{
+  border:2px solid white;
+}
+
+
+.display-none {
+  display: none;
+}
+
+.display-block {
+  display: block;
+}
