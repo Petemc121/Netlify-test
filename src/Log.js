@@ -1,14 +1,13 @@
 import React, {useState, useRef} from 'react'
 import Notes from './Notes.js'
 
-export default function Log({log}) {
+export default function Log({log, handleDeleteLog}) {
     
 
     const addButton = useRef();
     const [notes, setNotes] = useState([])
-    console.log(notes)
- 
-
+    
+   
 
     function handleAddNote() {
 
@@ -21,15 +20,20 @@ export default function Log({log}) {
 
 
     }
-
+ 
+    const handleDragStart = (e) => {
+        const card_id = e.target.id
+        const card = document.getElementById(card_id.toString());
+          card.style.display = 'none';  // this / e.target is the source node.
+          }
+    
+    
    
 
 
     return (
-        <div style={{backgroundColor: log.color}} class="log">
-            <h4>Instructional</h4>
-          {log.instructional}
-           <h4>technique</h4>
+        <div draggable="true" id={log.id} onDrag={handleDragStart} style={{backgroundColor: log.color}} class="log">
+           <h4>Technique</h4>
             {log.technique}
 
             <h4>Notes</h4>
@@ -37,6 +41,7 @@ export default function Log({log}) {
             <Notes key={log.id} notes={notes}/>
 
             <button ref={addButton} onClick={handleAddNote} id="add">+</button>
+            <button ref={addButton} onClick={() => handleDeleteLog(log.id)} id="delete">Delete Note</button>
 
         </div>
     )

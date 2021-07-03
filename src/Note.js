@@ -9,7 +9,7 @@ export default function Note({note}) {
    const [updateDisplay, setUpdateDisplay] = useState("none");
         
     
- const updateNote = () => {
+ const handleUpdateNote = () => {
    let editValue = noteRef.current.value
    console.log(editValue)
        setEdit(editValue);
@@ -19,7 +19,7 @@ export default function Note({note}) {
        editValue = null;
     }
 
-    const editNote = () =>
+    const handleEditNote = () =>
     {
         setEditDisplay("none")
         setNoteDisplay("block")
@@ -38,8 +38,8 @@ export default function Note({note}) {
             <div class="noteContain">
             <input ref={noteRef} style={{display: noteDisplay}} type="text" placeholder="Place your note here."></input>
             <div class="notesOut">{edit}</div>
-            <button class="update" style={{display: updateDisplay}} onClick={updateNote}>Update</button> 
-            <button class="edit" style={{display: editDisplay, margin:"10px 0px 10px 0px"}} onClick={editNote}>Edit</button> 
+            <button class="update" style={{display: updateDisplay}} onClick={handleUpdateNote}>Update</button> 
+            <button class="edit" style={{display: editDisplay, margin:"10px 0px 10px 0px"}} onClick={handleEditNote}>Edit</button> 
             </div>
         </div>
     )

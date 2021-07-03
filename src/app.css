@@ -1,20 +1,37 @@
 body {
-  background-color:rgb(56, 46, 46);
+  background-color: rgb(56, 46, 46);
 }
 
-#header {
-  width:100%;
-  display:flex;
-  justify-content:center;
-  color:rgb(179, 152, 226);
-  padding-top:20px;
-  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  font-size:30px;
+.header {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  color: rgb(179, 152, 226);
+  padding-top: 20px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: 30px;
+  margin-bottom: 10px;
 }
 
+#techniques {
+  font-size: 35px;
+}
 
-#inContain {
-  margin: 50px 50%;
+#mainHeader {
+  color: white;
+  font-size: 60px;
+}
+
+#description {
+  color: white;
+  font-size: 20px;
+  text-align: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.inContain {
+  margin: 100px 50%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -24,21 +41,27 @@ body {
 
 .input {
   margin: 10px 0;
-  background-color:black;
-  color:white;
-  font-weight:bold;
+  background-color: black;
+  color: white;
+  font-weight: bold;
 }
 
 #addNote {
-  background-color:rgb(118, 84, 179);
-  border:none;
-  padding:10px;
-  border-radius:5px;
-
+  background-color: rgb(118, 84, 179);
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
 }
 
-#addNote:focus{
-  border:2px solid white;
+#addCategory {
+  background-color: rgb(118, 84, 179);
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+#addNote:focus {
+  border: 2px solid white;
 }
 
 #bjjLogsCon {
@@ -47,47 +70,57 @@ body {
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .log {
   width: 250px;
-  height:auto;
-  border-radius:10px;
+  height: auto;
+  border-radius: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 10px;
   margin: 20px;
-  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  cursor:pointer;
 }
 
-.edit
-{
-  font-size:15px;
-  font-weight:bold;
+.category {
+  width: 80%;
+  border-radius: 10px;
+  border: 20px solid grey;
+  padding: 10px;
+  margin: 20px 0px 20px 0px;
 }
 
+#categoriesCon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-.update
-{
-  font-size:15px;
-  font-weight:bold;
+.edit {
+  font-size: 15px;
+  font-weight: bold;
+}
 
+.update {
+  font-size: 15px;
+  font-weight: bold;
 }
 
 h4 {
-  color:rgb(255, 255, 255);
-  font-size:20PX;
+  color: rgb(255, 255, 255);
+  font-size: 20px;
 }
 
 label {
-  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  color:yellow;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  color: yellow;
+  font-size: 25px;
+  font-weight: bold;
 }
-
-
-
 
 .saveCancel {
   display: none;
@@ -108,29 +141,41 @@ label {
   display: none;
 }
 
-.notesOut
-{
-  text-align:center;
-  width:100%;
+.notesOut {
+  text-align: center;
+  width: 100%;
 }
 
 #add {
-  margin:20px 0px 20px 0px;
-  background-color:rgb(118, 84, 179);
-  border:none;
-  padding:10px;
-  border-radius:5px;
-  color:white;
-  font-size:25px;
-  font-weight:bold;
-  width:50px;
+  margin: 20px 0px 20px 0px;
+  background-color: rgb(118, 84, 179);
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  color: white;
+  font-size: 25px;
+  font-weight: bold;
+  width: 50px;
+}
+#delete {
+  margin: 20px 0px 20px 0px;
+  background-color: rgb(100, 7, 7);
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  color: white;
+  font-size: 25px;
+  font-weight: bold;
+  cursor: pointer;
 }
 
-
-#add:focus{
-  border:2px solid white;
+#add:focus {
+  border: 2px solid white;
 }
 
+#delete:focus {
+  border: 2px solid white;
+}
 
 .display-none {
   display: none;
