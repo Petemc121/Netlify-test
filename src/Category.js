@@ -1,26 +1,32 @@
 import React, {useState} from 'react'
-import CategorizedLogs from './CategorizedLogs'
+import CategorizedTechniques from './CategorizedTechniques';
 
 
-export default function Category({category, logs}) 
-{
+export default function Category({category, handleDeleteCategory, handleEditCatTechNote, handleAddCatTechNote, handleDeleteTechnique, handleDeleteCatTechnique, handleDrop, handleDeleteCatTechNote}) {
 
-    const [catLogs, setCatLogs] = useState([])
+     
 
-    const handleAddTechnique = () => {
- 
-        
-     setCatLogs(prevCatTechniques => {
-        
-         return [...prevCatTechniques, {} ]
-         
-     })
+
+    const handleDragOver = (e) =>
+    {   e.preventDefault();
+        e.target.style.filter = "brightness(200%)";
     }
 
+    
+ 
+    const handleDragLeave = (e) =>
+    {
+        e.target.style.filter = "brightness(100%)";
+    }
+
+  
+
     return (
-        <div droppable="true" onDrop={handleAddTechnique} style={{backgroundColor:category.color}} class="category">
-            <h1>{category.category + ":"}</h1>
-            <CategorizedLogs />
+        <div id={category.id} onDrop={(e) => handleDrop(e ,category)} onDragOver={handleDragOver}  onDragLeave={handleDragLeave} droppable="true" style={{backgroundColor:category.color}} class="category">
+            <h1 class="categoryHeaders">{category.category }</h1>
+            <p style={{fontFamily:'"Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif'}}>Click the technique name to expand or contract.</p>
+            <CategorizedTechniques category={category} handleDeleteCatTechNote={handleDeleteCatTechNote} handleAddCatTechNote={handleAddCatTechNote} handleEditCatTechNote={handleEditCatTechNote} handleDeleteCatTechnique={handleDeleteCatTechnique} catTechniques={category.catTechniques} handleDeleteTechnique={handleDeleteTechnique}/>
+            <button class="categoryButtons" onClick={() => handleDeleteCategory(category.id)}>Delete</button>
         </div>
     )
 }
