@@ -12,14 +12,14 @@ html {
   justify-content: center;
   color: #353535;
   padding-top: 20px;
-  font-family: fa5-proxima-nova,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-family: fa5-proxima-nova, "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 30px;
   margin-bottom: 10px;
 }
 
 .categoryHeaders {
   color: white;
-  font-family: fa5-proxima-nova,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-family: fa5-proxima-nova, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 #techniques {
@@ -34,7 +34,7 @@ html {
 #description {
   color: #353535;
   font-size: 20px;
-  font-weight:bold;
+  font-weight: bold;
   text-align: center;
   flex-direction: column;
   align-items: center;
@@ -56,36 +56,44 @@ html {
   font-weight: bold;
 }
 
-
-
 #addTechnique {
-  background-color:#284B63;;
-  color:white;
+  background-color: #284b63;
+  color: white;
   border: none;
   padding: 10px;
   border-radius: 5px;
 }
 
-.titleIn{
-    min-height:30px;
-    border-radius:5px;
-    font-size:20px;
-  font-family: fa5-proxima-nova,"Helvetica Neue",Helvetica,Arial,sans-serif;
+.titleIn {
+  min-height: 30px;
+  border-radius: 5px;
+  font-size: 20px;
+  font-family: fa5-proxima-nova, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
 
+.titles {
+  font-family: fa5-proxima-nova, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #284b63;
+}
 
+.videoFrame {
+  margin: 10px 0px 10px 0px;
+  max-height: 180px;
+  max-width: 250px;
 }
 
 #addCategory {
-  background-color: #284B63;
-  color:white;
+  background-color: #284b63;
+  color: white;
   border: none;
   padding: 10px;
   border-radius: 5px;
 }
 
 #categoryKeysTitle {
-  font-family: fa5-proxima-nova,"Helvetica Neue",Helvetica,Arial,sans-serif;
-  color:#353535;
+  font-family: fa5-proxima-nova, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #353535;
+  font-size: 25px;
 }
 
 #addNote:focus {
@@ -99,6 +107,19 @@ html {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+}
+
+#techniqueSection {
+  border: 2px solid #284b63;
+  margin-bottom: 20px;
+  width: 90%;
+  margin-left: 5%;
+}
+
+#categorySection {
+  border: 2px solid #284b63;
+  width: 90%;
+  margin-left: 5%;
 }
 
 #techniqueContain {
@@ -125,8 +146,9 @@ html {
   align-items: center;
   padding: 10px;
   margin: 20px;
-  font-family: fa5-proxima-nova,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-family: fa5-proxima-nova, "Helvetica Neue", Helvetica, Arial, sans-serif;
   cursor: pointer;
+  touch-action:none;
 }
 
 .category {
@@ -142,7 +164,7 @@ html {
 }
 
 .categoryButtons {
-  background-color: rgb(155, 65, 65);;
+  background-color: rgb(155, 65, 65);
   border: none;
   padding: 10px;
   border-radius: 5px;
@@ -152,9 +174,9 @@ html {
   cursor: pointer;
 }
 
-#categoryButtons:hover{
+#categoryButtons:hover {
   background-color: rgb(131, 29, 29);
-  cursor:pointer;
+  cursor: pointer;
 }
 
 #categoryKeyContain {
@@ -198,7 +220,7 @@ h4 {
 }
 
 label {
-  font-family: fa5-proxima-nova,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-family: fa5-proxima-nova, "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #353535;
   font-size: 25px;
   font-weight: bold;
@@ -228,10 +250,7 @@ label {
   border: 1px solid black;
   margin: 2px 0px 2px 0px;
   border-radius: 4px;
-  width: 50%;
 }
-
-
 
 .notesOut {
   text-align: center;
@@ -246,7 +265,7 @@ label {
 
 #add {
   margin: 30px 0px 30px 0px;
-  background-color: #0EAD69;
+  background-color: #0ead69;
   border: none;
   padding: 10px;
   border-radius: 5px;
@@ -254,11 +273,12 @@ label {
   font-size: 25px;
   font-weight: bold;
   width: 50px;
+  justify-content: center;
 }
 
-#add:hover{
+#add:hover {
   background-color: #0f8853;
-  cursor:pointer;
+  cursor: pointer;
 }
 
 #delete {
@@ -273,9 +293,9 @@ label {
   cursor: pointer;
 }
 
-#delete:hover{
+#delete:hover {
   background-color: rgb(131, 29, 29);
-  cursor:pointer;
+  cursor: pointer;
 }
 
 .buttonCon {
@@ -299,4 +319,9 @@ label {
 
 .display-block {
   display: block;
+}
+
+.videoContain {
+  flex-direction: column;
+  align-items: center;
 }
