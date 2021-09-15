@@ -32,7 +32,7 @@ export default function CatTechNote({handleEditCatTechNote, expanded, catTechniq
                <h4 style={{display:expanded}} >Note {catTechNote.noteID}:</h4>
             <div style={{display:expanded}}  class="noteContain">
             <div class="buttonCon">
-            <input ref={noteRef} style={{display: noteDisplay, textAlign:"center"}} type="text" placeholder="Place your note here."></input>
+            <input ref={noteRef} style={{display: noteDisplay, textAlign:"center"}} defaultValue={catTechNote.noteText}  type="text" placeholder="Place your note here."></input>
             <div class="notesOut">{catTechNote.noteText}</div>
            
             <button class="noteModify" style={{display: updateDisplay}} onClick={handleUpdateCatTechNote}>Update</button> 

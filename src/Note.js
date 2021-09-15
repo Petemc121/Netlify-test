@@ -31,7 +31,7 @@ export default function Note({note, technique, handleDeleteNote, editNote}) {
         <div>
             <h4>Note {note.noteID}:</h4>
             <div class="noteContain">
-            <input ref={noteRef} style={{display: noteDisplay}} type="text" placeholder="Place your note here."></input>
+            <input ref={noteRef} defaultValue={note.noteText} style={{display: noteDisplay}} type="text" placeholder="Place your note here."></input>
             <div class="notesOut"><span>{note.noteText}</span></div>
             <button class="noteModify" style={{display: updateDisplay}} onClick={handleUpdateNote}>Update</button> 
             <button class="noteModify" style={{display: updateDisplay}} onClick={() => { handleDeleteNote(note.noteID, technique.id)}} >Delete</button> 

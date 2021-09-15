@@ -1,7 +1,7 @@
 import React, {useState, useRef} from 'react'
 import Notes from './Notes.js'
 
-export default function Technique({technique, editVideo, handleDeleteTechnique, handleDeleteNote, editNote, addNote}) {
+export default function Technique({technique, handleTouchDragStart, handleTouchDragEnd, editVideo, handleDeleteTechnique, handleDeleteNote, editNote, addNote}) {
     
     const videoRef = useRef();
     const [editDisplay, setEditDisplay] = useState('block');
@@ -13,7 +13,7 @@ export default function Technique({technique, editVideo, handleDeleteTechnique, 
 
     function handleAddNote() {
            
-            const newNotes = [...technique.notes, {noteText:"Your note will be displayed here.", noteID:technique.notes.length + 1, noteTitle:"Note " + (technique.notes.length + 1)}]
+            const newNotes = [...technique.notes, {noteText:"Add note here.", noteID:technique.notes.length + 1, noteTitle:"Note " + (technique.notes.length + 1)}]
             addNote(newNotes, technique);
 
     }
@@ -23,7 +23,6 @@ export default function Technique({technique, editVideo, handleDeleteTechnique, 
         e.target.classList.add('dragging');  // this / e.target is the source node.
         
       }
-
       
     function handleDragEnd(e) {
     
@@ -61,7 +60,7 @@ export default function Technique({technique, editVideo, handleDeleteTechnique, 
 
 
     return (
-        <div draggable="true" id={technique.id} onDrag={handleDragStart} onDragEnd={handleDragEnd} onDragEnter={(event) => {event.preventDefault()}} style={{backgroundColor: technique.color}} class="log">
+        <div draggable="true" id={technique.id} onTouchMove={handleTouchDragStart} onTouchEnd={handleTouchDragEnd} onDrag={handleDragStart} onDragEnd={handleDragEnd} onDragEnter={(event) => {event.preventDefault()}} style={{backgroundColor: technique.color}} class="log">
 
            <h3>{technique.technique}</h3> 
            <h3>Video</h3> 

@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/bjj-notes-app/static/css/main.1c32d952.chunk.css",
-    "main.js": "/bjj-notes-app/static/js/main.48e203d7.chunk.js",
-    "main.js.map": "/bjj-notes-app/static/js/main.48e203d7.chunk.js.map",
-    "runtime-main.js": "/bjj-notes-app/static/js/runtime-main.2ff2ee13.js",
-    "runtime-main.js.map": "/bjj-notes-app/static/js/runtime-main.2ff2ee13.js.map",
-    "static/js/2.4a3a93d2.chunk.js": "/bjj-notes-app/static/js/2.4a3a93d2.chunk.js",
-    "static/js/2.4a3a93d2.chunk.js.map": "/bjj-notes-app/static/js/2.4a3a93d2.chunk.js.map",
-    "index.html": "/bjj-notes-app/index.html",
-    "static/css/main.1c32d952.chunk.css.map": "/bjj-notes-app/static/css/main.1c32d952.chunk.css.map",
-    "static/js/2.4a3a93d2.chunk.js.LICENSE.txt": "/bjj-notes-app/static/js/2.4a3a93d2.chunk.js.LICENSE.txt"
+    "main.css": "/BJJ-Notes-React-App/static/css/main.d4065bdc.chunk.css",
+    "main.js": "/BJJ-Notes-React-App/static/js/main.cb4d29de.chunk.js",
+    "main.js.map": "/BJJ-Notes-React-App/static/js/main.cb4d29de.chunk.js.map",
+    "runtime-main.js": "/BJJ-Notes-React-App/static/js/runtime-main.7e53bc56.js",
+    "runtime-main.js.map": "/BJJ-Notes-React-App/static/js/runtime-main.7e53bc56.js.map",
+    "static/js/2.67770b6c.chunk.js": "/BJJ-Notes-React-App/static/js/2.67770b6c.chunk.js",
+    "static/js/2.67770b6c.chunk.js.map": "/BJJ-Notes-React-App/static/js/2.67770b6c.chunk.js.map",
+    "index.html": "/BJJ-Notes-React-App/index.html",
+    "static/css/main.d4065bdc.chunk.css.map": "/BJJ-Notes-React-App/static/css/main.d4065bdc.chunk.css.map",
+    "static/js/2.67770b6c.chunk.js.LICENSE.txt": "/BJJ-Notes-React-App/static/js/2.67770b6c.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.2ff2ee13.js",
-    "static/js/2.4a3a93d2.chunk.js",
-    "static/css/main.1c32d952.chunk.css",
-    "static/js/main.48e203d7.chunk.js"
+    "static/js/runtime-main.7e53bc56.js",
+    "static/js/2.67770b6c.chunk.js",
+    "static/css/main.d4065bdc.chunk.css",
+    "static/js/main.cb4d29de.chunk.js"
   ]
 }

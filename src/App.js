@@ -1,4 +1,4 @@
-import React, {useEffect, useState, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Techniques from './Techniques';
 import Categories from './Categories';
 import CategoryKeys from './CategoryKeys';
@@ -16,8 +16,7 @@ export default function App() {
    let techniqueNo = Math.floor(Math.random()*100000);
    let catNo = Math.floor(Math.random()*100000);
 
-
-useEffect(() => {
+   useEffect(() => {
     const storedTechniques = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_1))
     if (storedTechniques) setTechniques(storedTechniques)
 }, [])
@@ -46,8 +45,10 @@ useEffect(() => {
 
 
    
+   
    function createLog() {
        const technique = techniqueRef.current.value;
+    
 
        if(technique === "")
        { alert("Please enter a technique.") 
@@ -56,7 +57,7 @@ useEffect(() => {
         
        setTechniques(prevTechniques => {
       
-           return [...prevTechniques, {id: techniqueNo, technique:technique, video:'', color:'rgb(21, 134, 152)', notes:[]}];
+           return [...prevTechniques, {id: techniqueNo, technique:technique, color:'rgb(21, 134, 152)', notes:[]}];
 
        });
 
@@ -64,72 +65,13 @@ useEffect(() => {
        techniqueRef.current.value = null;
     }
 
-    function editVideo(videoLink, techniqueID) {
-       let embedVideoLink = videoLink.replace('watch?v=','embed/')
-
-       if (embedVideoLink.includes('&t='))
-       {
-           const tIndex = embedVideoLink.indexOf('&t=')
-           embedVideoLink = embedVideoLink.substring(0,tIndex);
-           console.log(embedVideoLink)
-       }
-
-       setTechniques(techniques => {
-        const updatedTechniques =  techniques.map(technique =>
-            {
-                if (technique.id === techniqueID)
-                {
-                   return {id: technique.id, technique:technique.technique, video:embedVideoLink, color:technique.color, notes:technique.notes}     
-                }
-                else{
-                    return {id: technique.id, technique:technique.technique, video:technique.video, color:technique.color, notes:technique.notes}  
-                }
-            })
-
-            return updatedTechniques;
-       })
-    }
-
-    function editCatTechVideo(videoLink, techniqueID) {
-        let embedVideoLink = videoLink.replace('watch?v=','embed/')
- 
-        if (embedVideoLink.includes('&t='))
-        {
-            const tIndex = embedVideoLink.indexOf('&t=')
-            embedVideoLink = embedVideoLink.substring(0,tIndex);
-            console.log(embedVideoLink)
-        }
- 
-        setCategories(categories => {
-
-      return  categories.map(category => 
-                {
-        const updatedCatTechniques = category.catTechniques.map(catTechnique => {
-                 if (catTechnique.id === techniqueID)
-                 {
-                    return {id: catTechnique.id, technique:catTechnique.technique, video:embedVideoLink, color:catTechnique.color, notes:catTechnique.notes}     
-                 }
-                 else 
-                 {
-                     return {id: catTechnique.id, technique:catTechnique.technique, video:catTechnique.video, color:catTechnique.color, notes:catTechnique.notes}  
-                 }
-             })
-
-            return {id:category.id, category:category.category, color:category.color, catTechniques:updatedCatTechniques }
-        })
-
-     })
-    }
-
-   
-
     function addNote(notes, chosenTechnique) {
         setTechniques(techniques => {
           let  updatedTechniques = [];
             techniques.forEach(technique => {
-                if (technique.id == chosenTechnique.id)
+                if (technique.id === chosenTechnique.id)
                 {
-                let updatedTechnique = {id: chosenTechnique.id, technique: chosenTechnique.technique, video:chosenTechnique.video, color: chosenTechnique.color, notes: notes}
+                let updatedTechnique = {id: chosenTechnique.id, technique: chosenTechnique.technique, video:technique.video, color: chosenTechnique.color, notes: notes}
 
                 updatedTechniques.push(updatedTechnique)
                 } else{
@@ -181,7 +123,64 @@ useEffect(() => {
         }
 
 
+        function editVideo(videoLink, techniqueID) {
+            let embedVideoLink = videoLink.replace('watch?v=','embed/')
+     
+            if (embedVideoLink.includes('&t='))
+            {
+                const tIndex = embedVideoLink.indexOf('&t=')
+                embedVideoLink = embedVideoLink.substring(0,tIndex);
+                console.log(embedVideoLink)
+            }
+     
+            setTechniques(techniques => {
+             const updatedTechniques =  techniques.map(technique =>
+                 {
+                     if (technique.id === techniqueID)
+                     {
+                        return {id: technique.id, technique:technique.technique, video:embedVideoLink, color:technique.color, notes:technique.notes}     
+                     }
+                     else{
+                         return {id: technique.id, technique:technique.technique, video:technique.video, color:technique.color, notes:technique.notes}  
+                     }
+                 })
+     
+                 return updatedTechniques;
+            })
+         }
     
+         function editCatTechVideo(videoLink, techniqueID) {
+            let embedVideoLink = videoLink.replace('watch?v=','embed/')
+     
+            if (embedVideoLink.includes('&t='))
+            {
+                const tIndex = embedVideoLink.indexOf('&t=')
+                embedVideoLink = embedVideoLink.substring(0,tIndex);
+                console.log(embedVideoLink)
+            }
+     
+            setCategories(categories => {
+    
+          return  categories.map(category => 
+                    {
+            const updatedCatTechniques = category.catTechniques.map(catTechnique => {
+                     if (catTechnique.id === techniqueID)
+                     {
+                        return {id: catTechnique.id, technique:catTechnique.technique, video:embedVideoLink, color:catTechnique.color, notes:catTechnique.notes}     
+                     }
+                     else 
+                     {
+                         return {id: catTechnique.id, technique:catTechnique.technique, video:catTechnique.video, color:catTechnique.color, notes:catTechnique.notes}  
+                     }
+                 })
+    
+                return {id:category.id, category:category.category, color:category.color, catTechniques:updatedCatTechniques }
+            })
+    
+         })
+        }
+    
+
 
     function handleCreateCategory()
     {
@@ -236,7 +235,7 @@ const handleDeleteCategory = (categoryID) =>
                     
                     if (technique.id === techniqueID)
                     {
-                       const newNotes = technique.notes.filter(note => note.noteID != noteID);
+                       const newNotes = technique.notes.filter(note => note.noteID !== noteID);
 
                        return {id: technique.id, technique: technique.technique, video:technique.video, color: technique.color, notes: newNotes}
 
@@ -279,7 +278,7 @@ function handleAddCatTechNote(newNotes, chosenCatTechnique) {
             let updatedCatTechniques = [];
             category.catTechniques.forEach(catTechnique =>
                 {
-            if (catTechnique.id == chosenCatTechnique.id)
+            if (catTechnique.id === chosenCatTechnique.id)
             {
             let updatedTechnique = {id: chosenCatTechnique.id, technique: chosenCatTechnique.technique, video:chosenCatTechnique.video, color: chosenCatTechnique.color, notes: newNotes}
 
@@ -311,14 +310,14 @@ function handleDeleteCatTechNote(noteID, techniqueID)
                 
                 if (catTechnique.id === techniqueID)
                 {
-                   const newNotes = catTechnique.notes.filter(note => note.noteID != noteID);
+                   const newNotes = catTechnique.notes.filter(note => note.noteID !== noteID);
 
                    updatedCatTechniques.push({id: catTechnique.id, technique: catTechnique.technique, video:catTechnique.video, color: catTechnique.color, notes: newNotes});
                     console.log('same')
 
                 } else
                 {
-                    updatedCatTechniques.push({id: catTechnique.id, technique: catTechnique.technique, video:catTechnique.video, color: catTechnique.color, notes: catTechnique.notes});
+                    updatedCatTechniques.push({id: catTechnique.id, technique: catTechnique.technique, video:catTechnique.video,  color: catTechnique.color, notes: catTechnique.notes});
                 }
 
                 
@@ -352,12 +351,12 @@ function handleEditCatTechNote(noteEdit, noteID, chosenCatTechnique) {
                         updatedCatTechniqueNotes.push({noteText:catTechniqueNote.noteText, noteID:catTechniqueNote.noteID, noteTitle:"Note " + (catTechniqueNote.noteID)})
                     }
                 })
-                updatedCatTechniques.push({id: catTechnique.id, technique: catTechnique.technique, video:catTechnique.video, color: catTechnique.color, notes: updatedCatTechniqueNotes})
+                updatedCatTechniques.push({id: catTechnique.id, technique: catTechnique.technique, video:catTechnique.video,  color: catTechnique.color, notes: updatedCatTechniqueNotes})
 
 
               } else
               {
-                updatedCatTechniques.push({id: catTechnique.id, technique: catTechnique.technique, video:catTechnique.video, color: catTechnique.color, notes:catTechnique.notes})
+                updatedCatTechniques.push({id: catTechnique.id, technique: catTechnique.technique, video:catTechnique.video,  color: catTechnique.color, notes:catTechnique.notes})
               }
 
 
@@ -368,6 +367,29 @@ function handleEditCatTechNote(noteEdit, noteID, chosenCatTechnique) {
         return updatedCategories;
     })
 }
+
+
+function handleTouchDragStart(e) {
+      
+    e.target.classList.add('dragging');  // this / e.target is the source node.
+    const touchLocation = e.targetTouches[0];
+
+    e.target.style.position = "absolute"
+    e.target.style.left = (touchLocation.pageX -100) + 'px';
+    e.target.style.top = (touchLocation.pageY - 100) + 'px';
+
+    
+  }
+
+  function handleTouchEnd(event) {
+    
+    const dragging = document.querySelector(".dragging")
+
+  console.log(event.currentTarget)
+
+   
+    
+  }
 
 const handleDrop = (e, chosenCategory) =>
 {
@@ -388,10 +410,8 @@ const handleDrop = (e, chosenCategory) =>
 
          const updatedCategories = categories.map(category => {
           
-               if (chosenCategory.id == category.id)
+               if (chosenCategory.id === category.id)
                {
-
-                console.log(technique.video);
                const updatedCatTechniques = [...category.catTechniques, {id: technique.id, technique: technique.technique, video:technique.video, color: newColor, notes: technique.notes} ]
                return  {id:category.id, category:category.category, color:category.color, catTechniques:updatedCatTechniques }
                }
@@ -451,21 +471,14 @@ const handleDrop = (e, chosenCategory) =>
             <p>Add your techniques below. You can also add categories if you scroll down further (Instructionals, positions etc).</p>
             <p>Drag and drop techniques into catgeories/category shortcuts to categorize them.</p>
         </div>
-       
-        <div id="techniqueSection">
+
         <div class="inContain">
-            <h1 class="titles">Techniques</h1>
         <label for="technique">Technique</label>    
         <input ref={techniqueRef} id="techniqueIn" class="input titleIn" type="text"></input>
         <button onClick={createLog} id="addTechnique" class="input">Add Technique</button>
         </div>
         <div id="techniqueContain">
-        <Techniques handleDeleteTechnique={handleDeleteTechnique} handleDeleteNote={handleDeleteNote} editVideo={editVideo}  editNote={editNote} addNote={addNote} techniques={ techniques } />
-        </div>
-        </div>
-        <div id="categorySection">
-            <div class="center">
-        <h1 class="titles">Categories</h1>
+        <Techniques handleDeleteTechnique={handleDeleteTechnique} handleTouchDragStart={handleTouchDragStart} handleDeleteNote={handleDeleteNote}  editNote={editNote} editVideo={editVideo} addNote={addNote} techniques={ techniques } />
         </div>
         <div class="center">
         <h1 id="categoryKeysTitle" >Category Shortcuts</h1>
@@ -478,8 +491,9 @@ const handleDrop = (e, chosenCategory) =>
         <input ref={categoryRef} id="categoryIn" class="input titleIn" type="text"></input>
         <button onClick={handleCreateCategory} id="addCategory" class="input">Add Category</button>
         </div>
-        <Categories handleDrop={handleDrop} handleDeleteCatTechNote={handleDeleteCatTechNote} handleAddCatTechNote={handleAddCatTechNote} editCatTechVideo={editCatTechVideo} handleEditCatTechNote={handleEditCatTechNote} handleDeleteCategory={handleDeleteCategory} techniques={techniques} handleDeleteCatTechnique={handleDeleteCatTechnique} handleDeleteTechnique={handleDeleteTechnique} categories={categories}/>
-        </div>
+        <Categories  handleTouchEnd={handleTouchEnd} handleDrop={handleDrop} handleDeleteCatTechNote={handleDeleteCatTechNote} handleAddCatTechNote={handleAddCatTechNote} handleEditCatTechNote={handleEditCatTechNote}
+        editCatTechVideo={editCatTechVideo} handleDeleteCategory={handleDeleteCategory} techniques={techniques} handleDeleteCatTechnique={handleDeleteCatTechnique} handleDeleteTechnique={handleDeleteTechnique} categories={categories}/>
+      
         </>
     )
     
