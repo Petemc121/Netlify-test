@@ -1,7 +1,7 @@
 import React, {useState, useRef} from 'react'
 import Notes from './Notes.js'
 
-export default function Technique({technique, handleTouchDragStart, handleTouchDragEnd, editVideo, handleDeleteTechnique, handleDeleteNote, editNote, addNote}) {
+export default function Technique({technique, handleTouchDragStart, handleTouchEnd, editVideo, handleDeleteTechnique, handleDeleteNote, editNote, addNote}) {
     
     const videoRef = useRef();
     const [editDisplay, setEditDisplay] = useState('block');
@@ -60,7 +60,7 @@ export default function Technique({technique, handleTouchDragStart, handleTouchD
 
 
     return (
-        <div draggable="true" id={technique.id} onTouchMove={handleTouchDragStart} onTouchEnd={handleTouchDragEnd} onDrag={handleDragStart} onDragEnd={handleDragEnd} onDragEnter={(event) => {event.preventDefault()}} style={{backgroundColor: technique.color}} class="log">
+        <div draggable="true" onTouchEnd={handleTouchEnd} id={technique.id} onTouchMove={handleTouchDragStart} onDrag={handleDragStart} onDragEnd={handleDragEnd} onDragEnter={(event) => {event.preventDefault()}} style={{backgroundColor: technique.color}} class="log">
 
            <h3>{technique.technique}</h3> 
            <h3>Video</h3> 

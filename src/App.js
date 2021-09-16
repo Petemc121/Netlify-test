@@ -381,13 +381,20 @@ function handleTouchDragStart(e) {
     
   }
 
-  function handleTouchEnd(event) {
+  function handleTouchEnd(e) {
     
     const dragging = document.querySelector(".dragging")
 
-  console.log(event.currentTarget)
 
-   
+
+  
+    console.log(e.currentTarget)
+
+  e.target.style.position = "relative"
+  e.target.style.left = "0px"
+  e.target.style.top = "0px"
+  e.target.style.opacity = "1"
+
     
   }
 
@@ -472,13 +479,13 @@ const handleDrop = (e, chosenCategory) =>
             <p>Drag and drop techniques into catgeories/category shortcuts to categorize them.</p>
         </div>
 
-        <div class="inContain">
+        <div id="inContain">
         <label for="technique">Technique</label>    
         <input ref={techniqueRef} id="techniqueIn" class="input titleIn" type="text"></input>
         <button onClick={createLog} id="addTechnique" class="input">Add Technique</button>
         </div>
         <div id="techniqueContain">
-        <Techniques handleDeleteTechnique={handleDeleteTechnique} handleTouchDragStart={handleTouchDragStart} handleDeleteNote={handleDeleteNote}  editNote={editNote} editVideo={editVideo} addNote={addNote} techniques={ techniques } />
+        <Techniques handleTouchEnd={handleTouchEnd} handleDeleteTechnique={handleDeleteTechnique} handleTouchDragStart={handleTouchDragStart} handleDeleteNote={handleDeleteNote}  editNote={editNote} editVideo={editVideo} addNote={addNote} techniques={ techniques } />
         </div>
         <div class="center">
         <h1 id="categoryKeysTitle" >Category Shortcuts</h1>
@@ -486,7 +493,7 @@ const handleDrop = (e, chosenCategory) =>
         <div class="center">
         <CategoryKeys handleDrop={handleDrop} categoryKeys={categoryKeys} />
         </div>
-        <div  class="inContain">
+        <div  id="inContain">
         <label for="instructional">Category</label>    
         <input ref={categoryRef} id="categoryIn" class="input titleIn" type="text"></input>
         <button onClick={handleCreateCategory} id="addCategory" class="input">Add Category</button>

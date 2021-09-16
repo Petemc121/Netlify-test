@@ -40,7 +40,7 @@ html {
   align-items: center;
 }
 
-.inContain {
+#inContain {
   margin: 100px 50%;
   display: flex;
   flex-direction: column;
@@ -107,6 +107,7 @@ html {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+ 
 }
 
 #techniqueSection {
@@ -150,6 +151,7 @@ html {
   cursor: pointer;
   touch-action:none;
   position:relative;
+  z-index:3;
 }
 
 .category {
@@ -162,6 +164,7 @@ html {
   flex-direction: column;
   align-items: center;
   color: white;
+  z-index:2;
 }
 
 .categoryButtons {
