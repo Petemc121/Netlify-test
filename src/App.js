@@ -397,7 +397,11 @@ function handleTouchDragStart(e) {
 
     if (dropTarget.className === "category" || dropTarget.className === "categoryKeys" )
     { 
-        
+        const category = categories.find(cat => cat.id.toString() === dropTarget.id)
+
+
+        console.log(category)
+        handleDrop(e, category)
     }
 
 
