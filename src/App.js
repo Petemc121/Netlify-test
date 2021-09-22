@@ -377,6 +377,7 @@ function handleTouchDragStart(e) {
     e.target.style.position = "absolute"
     e.target.style.left = (touchLocation.pageX -100) + 'px';
     e.target.style.top = (touchLocation.pageY - 100) + 'px';
+    e.target.style.zIndex = "-100"
 
     
   }
@@ -389,8 +390,13 @@ function handleTouchDragStart(e) {
 
   
     console.log(e.currentTarget)
+    console.log(e)
+    const x = e.changedTouches[0].clientX 
+    const y = e.changedTouches[0].clientY
+    console.log(document.elementFromPoint(x,y))
 
   e.target.style.position = "relative"
+  e.target.style.zIndex = "1"
   e.target.style.left = "0px"
   e.target.style.top = "0px"
   e.target.style.opacity = "1"
