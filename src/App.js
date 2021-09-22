@@ -389,11 +389,17 @@ function handleTouchDragStart(e) {
 
 
   
-    console.log(e.currentTarget)
-    console.log(e)
     const x = e.changedTouches[0].clientX 
     const y = e.changedTouches[0].clientY
-    console.log(document.elementFromPoint(x,y))
+    const dropTarget = document.elementFromPoint(x,y)
+    console.log(dropTarget.className)
+    console.log(dropTarget)
+
+    if (dropTarget.className === "category" || dropTarget.className === "categoryKeys" )
+    { 
+        
+    }
+
 
   e.target.style.position = "relative"
   e.target.style.zIndex = "1"
