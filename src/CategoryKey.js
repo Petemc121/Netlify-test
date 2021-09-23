@@ -32,7 +32,7 @@ export default function CategoryKey({categoryKey, handleDrop}) {
 
     return (
         <a onMouseOver={brighten} onMouseOut={revert} href={`#${categoryKey.id}`} style={{textDecoration:"none"}} >
-        <div onDrop={(e) => handleDrop(e, categoryKey)} onDragOver={handleDragOver} onDragLeave={handleDragLeave} droppable="true"  ref={div}  class="categoryKeys" style={{backgroundColor:categoryKey.color}}>
+        <div id={categoryKey.id} onDrop={(e) => handleDrop(e, categoryKey)} onDragOver={handleDragOver} onDragLeave={handleDragLeave} droppable="true"  ref={div}  class="categoryKeys" style={{backgroundColor:categoryKey.color}}>
             <h1>{categoryKey.category}</h1>
         </div>
         </a>

@@ -383,17 +383,10 @@ function handleTouchDragStart(e) {
   }
 
   function handleTouchEnd(e) {
-    
-    const dragging = document.querySelector(".dragging")
 
-
-
-  
     const x = e.changedTouches[0].clientX 
     const y = e.changedTouches[0].clientY
     const dropTarget = document.elementFromPoint(x,y)
-    console.log(dropTarget.className)
-    console.log(dropTarget)
 
     if (dropTarget.className === "category")
     { 
