@@ -395,15 +395,24 @@ function handleTouchDragStart(e) {
     console.log(dropTarget.className)
     console.log(dropTarget)
 
-    if (dropTarget.className === "category" || dropTarget.className === "categoryKeys" )
+    if (dropTarget.className === "category")
     { 
         const category = categories.find(cat => cat.id.toString() === dropTarget.id)
 
 
         console.log(category)
         handleDrop(e, category)
+
     }
 
+    if (dropTarget.className === "categoryKeys")
+    { 
+        const categoryKey = categoryKeys.find(cat => cat.id.toString() === dropTarget.id)
+
+
+        console.log(categoryKey)
+        handleDrop(e, categoryKey)
+    }
 
   e.target.style.position = "relative"
   e.target.style.zIndex = "1"
