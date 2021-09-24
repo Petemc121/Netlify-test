@@ -202,6 +202,12 @@ html {
   text-align: center;
   border: 3px solid slateblue;
   color: white;
+  font-size:40px;
+  font-weight:bold;
+  height:60px;
+  line-height:50px;
+  font-family: fa5-proxima-nova, "Helvetica Neue", Helvetica, Arial, sans-serif;
+
 }
 
 #categoriesIn {
