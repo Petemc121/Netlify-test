@@ -378,6 +378,19 @@ function handleTouchDragStart(e) {
     e.target.style.left = (touchLocation.pageX -100) + 'px';
     e.target.style.top = (touchLocation.pageY - 100) + 'px';
     e.target.style.zIndex = "-100"
+   
+
+    const x = touchLocation.clientX
+    const y = touchLocation.clientY
+
+    const dropTarget = document.elementFromPoint(x,y)
+
+    if (dropTarget.className === "category" || dropTarget.className === "categoryKeys")
+    { 
+        dropTarget.style.filter = "brightness(200%)"
+    } else {
+        dropTarget.style.filter = "brightness(100%)"
+    }
 
     
   }
@@ -429,10 +442,38 @@ const handleDrop = (e, chosenCategory) =>
            
             
        const newColor = LightenDarkenColor(oldColor, -40);
+
+       if (chosenCategory.id.includes("key")) {
+        const idArray = chosenCategory.id.split("")
+        const keyRemove = idArray.filter(char => char.isInteger() === true);
+        const idString = keyRemove.join("");
+        const newID = idString.parseInt()
+
+        setCategories(categories => {
+
+          
+            const updatedCategories = categories.map(category => {
+             
+                  if (newID === category.id)
+                  {
+                  const updatedCatTechniques = [...category.catTechniques, {id: technique.id, technique: technique.technique, video:technique.video, color: newColor, notes: technique.notes} ]
+                  return  {id:category.id, category:category.category, color:category.color, catTechniques:updatedCatTechniques }
+                  }
+                  else{
+                      return category
+                  }
+   
+                  })
+   
+                  return updatedCategories;
+                  })
+                  handleDeleteTechnique(technique.id);
+        
+    } else {
         
         setCategories(categories => {
 
-
+          
          const updatedCategories = categories.map(category => {
           
                if (chosenCategory.id === category.id)
@@ -450,6 +491,7 @@ const handleDrop = (e, chosenCategory) =>
                })
                handleDeleteTechnique(technique.id);
         }
+    }
 
         
     })
