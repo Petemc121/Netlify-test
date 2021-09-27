@@ -387,9 +387,14 @@ function handleTouchDragStart(e) {
 
     if (dropTarget.className === "category" || dropTarget.className === "categoryKeys")
     { 
-        dropTarget.style.filter = "brightness(200%)"
+        dropTarget.style.filter = "brightness(150%)"
+       
     } else {
         dropTarget.style.filter = "brightness(100%)"
+        const categoryKeys = document.getElementsByClassName("categoryKeys")
+
+        for (let i = 0; i < categoryKeys.length; i++)
+        {categoryKeys[i].style.filter = "brightness(100%)"}
     }
 
     
@@ -407,6 +412,7 @@ function handleTouchDragStart(e) {
 
 
         console.log(category)
+        dropTarget.style.filter = "brightness(100%)"
         handleDrop(e, category)
 
     }
@@ -423,7 +429,7 @@ function handleTouchDragStart(e) {
         const newID = parseInt(idString)
         const categoryKey = categoryKeys.find(cat => cat.id === newID)
 
-
+        dropTarget.style.filter = "brightness(100%)"
         console.log(categoryKey)
         handleDrop(e, categoryKey)
     }

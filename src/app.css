@@ -219,6 +219,10 @@ html {
   
 }
 
+.touchOver:hover {
+  filter:brightness(150%)
+}
+
 #categoriesCon {
   display: flex;
   flex-direction: column;
