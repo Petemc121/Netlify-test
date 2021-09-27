@@ -412,8 +412,16 @@ function handleTouchDragStart(e) {
     }
 
     if (dropTarget.className === "categoryKeys")
+
     { 
-        const categoryKey = categoryKeys.find(cat => cat.id.toString() === dropTarget.id)
+        const idArray = dropTarget.id.split("") 
+        console.log(idArray)
+        const keyRemove = idArray.filter(char => char.match(/[a-z]/i) === null); 
+        console.log(keyRemove)
+        const idString = keyRemove.join(""); 
+        console.log(typeof idString)
+        const newID = parseInt(idString)
+        const categoryKey = categoryKeys.find(cat => cat.id === newID)
 
 
         console.log(categoryKey)
@@ -443,33 +451,6 @@ const handleDrop = (e, chosenCategory) =>
             
        const newColor = LightenDarkenColor(oldColor, -40);
 
-       if (chosenCategory.id.includes("key")) {
-        const idArray = chosenCategory.id.split("")
-        const keyRemove = idArray.filter(char => char.isInteger() === true);
-        const idString = keyRemove.join("");
-        const newID = idString.parseInt()
-
-        setCategories(categories => {
-
-          
-            const updatedCategories = categories.map(category => {
-             
-                  if (newID === category.id)
-                  {
-                  const updatedCatTechniques = [...category.catTechniques, {id: technique.id, technique: technique.technique, video:technique.video, color: newColor, notes: technique.notes} ]
-                  return  {id:category.id, category:category.category, color:category.color, catTechniques:updatedCatTechniques }
-                  }
-                  else{
-                      return category
-                  }
-   
-                  })
-   
-                  return updatedCategories;
-                  })
-                  handleDeleteTechnique(technique.id);
-        
-    } else {
         
         setCategories(categories => {
 
@@ -490,7 +471,7 @@ const handleDrop = (e, chosenCategory) =>
                return updatedCategories;
                })
                handleDeleteTechnique(technique.id);
-        }
+        
     }
 
         
@@ -503,7 +484,7 @@ const handleDrop = (e, chosenCategory) =>
   
         var usePound = false;
       
-        if (col[0] == "#") {
+        if (col[0] === "#") {
             col = col.slice(1);
             usePound = true;
         }

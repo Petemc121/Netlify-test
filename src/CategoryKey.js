@@ -19,6 +19,7 @@ export default function CategoryKey({categoryKey, handleDrop}) {
     const handleDragOver = (e) =>
     {   e.preventDefault();
         e.target.style.filter = "brightness(200%)";
+        console.log(categoryKey)
     }
 
     
