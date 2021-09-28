@@ -1,6 +1,6 @@
 import React, {useState, useRef} from 'react'
 
-export default function CatTechNote({handleEditCatTechNote, expanded, catTechnique, handleDeleteCatTechNote,  catTechNote}) {
+export default function CatTechNote({handleEditCatTechNote, expanded, catTechnique, handleDeleteCatTechNote, catTechNote}) {
 
     const [editDisplay, setEditDisplay] = useState("block");
     const [noteDisplay, setNoteDisplay] = useState("none");
@@ -29,8 +29,8 @@ export default function CatTechNote({handleEditCatTechNote, expanded, catTechniq
 
     return (
         <div>
-               <h4 style={{display:expanded}} >Note {catTechNote.noteID}:</h4>
             <div style={{display:expanded}}  class="noteContain">
+               <h4 style={{display:expanded}} >Note {catTechNote.noteID}:</h4>
             <div class="buttonCon">
             <input ref={noteRef} style={{display: noteDisplay, textAlign:"center"}} defaultValue={catTechNote.noteText}  type="text" placeholder="Place your note here."></input>
             <div class="notesOut">{catTechNote.noteText}</div>

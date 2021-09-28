@@ -79,7 +79,7 @@ export default function CategorizedTechnique({editCatTechVideo, handleAddCatTech
 
 
     return (
-        <div id={catTechnique.id}  onDrag={handleDragStart} onDragEnd={handleDragEnd} style={{backgroundColor: catTechnique.color}} class="log">
+        <div id={catTechnique.id}  onDrag={handleDragStart} onDragEnd={handleDragEnd} style={{backgroundColor: catTechnique.color}} class="log catLog">
     
          <h3 onClick={expand}>{catTechnique.technique}</h3>
      <div style={{display:expanded}} class="videoContain">

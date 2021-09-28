@@ -221,7 +221,12 @@ useEffect(() => {
 
 const handleDeleteCategory = (categoryID) =>
 {
-    setCategories(categories => {return categories.filter(category => category.id !== categoryID)})
+    const colorArray = ["#F94144","#F3722C","#F8961E","#F9C74F", "#90BE6D", "#43AA8B", "#577590", "#541388"]
+
+    const deletedCategories = categories.filter(category => category.id !== categoryID)
+    const modifiedColorCategories = deletedCategories.map((category, index) => { return {id:category.id, category:category.category, color:colorArray[index], catTechniques:category.catTechniques}})
+
+    setCategories(modifiedColorCategories)
     setCategoryKeys(categoryKeys => {return categoryKeys.filter(categoryKey => categoryKey.id !== categoryID)})
 }
 
@@ -310,7 +315,11 @@ function handleDeleteCatTechNote(noteID, techniqueID)
                 
                 if (catTechnique.id === techniqueID)
                 {
-                   const newNotes = catTechnique.notes.filter(note => note.noteID !== noteID);
+                   const deletedNotes = catTechnique.notes.filter(note => note.noteID !== noteID);
+
+                   const newNotes = deletedNotes.map((note, index) => {
+                       return ({noteText:note.noteText, noteID:index + 1, noteTitle:"Note " + (index + 1)})
+                   })
 
                    updatedCatTechniques.push({id: catTechnique.id, technique: catTechnique.technique, video:catTechnique.video, color: catTechnique.color, notes: newNotes});
                     console.log('same')
