@@ -61,6 +61,8 @@ useEffect(() => {
 
        });
 
+    //    setCategoryKeys([])
+
   
        techniqueRef.current.value = null;
     }
@@ -185,7 +187,7 @@ useEffect(() => {
     function handleCreateCategory()
     {
 
-        // GREEN PURPLE BLUE BROWN RED YELLOW ORANGE BROWN GREY WHITE
+       
         const colorArray = ["#F94144","#F3722C","#F8961E","#F9C74F", "#90BE6D", "#43AA8B", "#577590", "#541388"]
         const category = categoryRef.current.value;
 
@@ -205,7 +207,7 @@ useEffect(() => {
          })
 
          setCategoryKeys(prevCategoryKeys => {
-            return [...prevCategoryKeys, {id:catNo, category:category, color:colorArray[categories.length], catKeyTechniques:[] }]
+            return [...prevCategoryKeys, {id:catNo, category:category, color:colorArray[categories.length] }]
          })
 
          categoryRef.current.value = null;
@@ -227,7 +229,11 @@ const handleDeleteCategory = (categoryID) =>
     const modifiedColorCategories = deletedCategories.map((category, index) => { return {id:category.id, category:category.category, color:colorArray[index], catTechniques:category.catTechniques}})
 
     setCategories(modifiedColorCategories)
-    setCategoryKeys(categoryKeys => {return categoryKeys.filter(categoryKey => categoryKey.id !== categoryID)})
+
+    const deletedCategoryKeys = categoryKeys.filter(categoryKey => categoryKey.id !== categoryID)
+    const modifiedColorCategoryKeys = deletedCategoryKeys.map((categoryKey, index) => { return {id:categoryKey.id, category:categoryKey.category, color:colorArray[index] }})
+    console.log(modifiedColorCategoryKeys)
+    setCategoryKeys(modifiedColorCategoryKeys)
 }
 
 
