@@ -400,6 +400,8 @@ function handleTouchDragStart(e) {
 
     const dropTarget = document.elementFromPoint(x,y)
 
+    if (dropTarget) {
+
     if (dropTarget.className === "category" || dropTarget.className === "categoryKeys")
     { 
         dropTarget.style.filter = "brightness(150%)"
@@ -408,9 +410,15 @@ function handleTouchDragStart(e) {
         dropTarget.style.filter = "brightness(100%)"
         const categoryKeys = document.getElementsByClassName("categoryKeys")
 
+        const categories = document.getElementsByClassName("category")
+
         for (let i = 0; i < categoryKeys.length; i++)
         {categoryKeys[i].style.filter = "brightness(100%)"}
+
+        for (let i = 0; i < categories.length; i++)
+        {categories[i].style.filter = "brightness(100%)"}
     }
+}
 
     
   }

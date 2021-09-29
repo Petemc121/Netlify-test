@@ -64,16 +64,18 @@ export default function CategorizedTechnique({editCatTechVideo, handleAddCatTech
       function expand() {
 
 
-        if(expanded == 'none')
+        if(expanded === 'none')
         {
           setExpanded('flex')
-          if (catTechnique.video !== "")
+          if (catTechnique.video !== undefined)
           {
+            console.log(catTechnique.video)
             setVideoDisplay('block')
           }
         } else
         {
           setExpanded('none')
+          setVideoDisplay('none')
         }
       }
 
