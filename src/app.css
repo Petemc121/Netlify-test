@@ -82,6 +82,14 @@ html {
   max-width: 250px;
 }
 
+@media (max-width: 500px) {
+  .videoFrame {
+   
+    max-width: 230px;
+  }
+  
+}
+
 #addCategory {
   background-color: #284b63;
   color: white;
